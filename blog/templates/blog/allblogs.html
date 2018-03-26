@@ -41,11 +41,11 @@
         <hr>
         {% for blog in blogs.all %}
           <h3><a href="">{{ blog.title }}</a></h3>
-          {{ blog.pub_date }}
+          {{ blog.pub_date_pretty }}
           <br>
           <img class="img-fluid" src="{{ blog.image.url }}" height="200" width="200">
           <br>
-          <p>{{ blog.body }}</p>
+          <p>{{ blog.summary }}</p>
         {% endfor %}
       </div>
     </main>
