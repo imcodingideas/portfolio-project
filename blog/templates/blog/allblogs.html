@@ -2,32 +2,33 @@
 <!doctype html>
 <html lang="en">
   <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Joseph Chambers</title>
+    <title>Joseph Chambers's Blog</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
 
   <body>
 
-    <header>
+  <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Joseph Chambers</a>
+        <a class="navbar-brand" href="{% url 'home' %}">Joseph Chambers</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Twitter</a>
+              <a class="nav-link" href="http://twitter.com/imcodingideas" target="_blank">Twitter</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Resume</a>
+              <a class="nav-link" href="{% static 'resume.pdf' %}">Resume</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">Blog</a>
+              <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
             </li>
           </ul>
         </div>
@@ -40,7 +41,7 @@
         <h2>Latest Posts</h2>
         <hr>
         {% for blog in blogs.all %}
-          <h3><a href="">{{ blog.title }}</a></h3>
+          <h3><a href="{% url 'detail' blog.id %}">{{ blog.title }}</a></h3>
           {{ blog.pub_date_pretty }}
           <br>
           <img class="img-fluid" src="{{ blog.image.url }}" height="200" width="200">
