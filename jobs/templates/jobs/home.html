@@ -1,7 +1,7 @@
-
 <!doctype html>
 <html lang="en">
   <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -24,7 +24,7 @@
               <a class="nav-link" href="#">Twitter</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Resume</a>
+              <a class="nav-link" href="{% static 'resume.pdf' %}">Resume</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Blog</a>
@@ -43,6 +43,7 @@
           <p>
             <a href="mailto:joseph@michael-chambers.com" class="btn btn-primary my-2">Email Me</a>
           </p>
+          <img src="{% static 'image.jpg' %}" height='300'>
         </div>
       </section>
 
